@@ -10,17 +10,30 @@ cardForm.addEventListener('submit', function(event) {
     const expiryDate = document.getElementById('expiry-date').value;
     const cvc = document.getElementById('cvc').value;
 
-    document.querySelector('.card-holder').textContent = cardholderName.toUpperCase();
-    document.querySelector('.card-number').textContent = formatCardNumber(cardNumber);
-    document.querySelector('.card-expiry').textContent = expiryDate;
-    document.querySelector('.card-cvv').textContent = cvc;
+    let valid = true;
 
-    cardForm.classList.add('d-none');
-    thankyouSection.classList.remove('d-none');
+    document.getElementById('number-error').textContent = '';
+    document.getElementById('expiry-error').textContent = '';
+    document.getElementById('cvc-error').textContent = '';
+
+    if (!/^\d{16}$/.test(cardNumber.replace(/\s+/g, ''))) {
+        document.getElementById('number-error').textContent = 'Card number must be 16 digits.';
+        valid = false;
+    }
+
+    if (valid) {
+        document.querySelector('.card-holder').textContent = cardholderName.toUpperCase();
+        document.querySelector('.card-number').textContent = formatCardNumber(cardNumber);
+        document.querySelector('.card-expiry').textContent = expiryDate;
+        document.querySelector('.card-cvv').textContent = cvc;
+
+        cardForm.classList.add('d-none');
+        thankyouSection.classList.remove('d-none');
+    }
 });
 
 function formatCardNumber(cardNumber) {
-    return cardNumber.replace(/(\d{4})/g, '$1 ').trim();
+    return cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
 }
 
 continueBtn.addEventListener('click', function() {
