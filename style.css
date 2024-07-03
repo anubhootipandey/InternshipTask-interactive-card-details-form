@@ -1,0 +1,190 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-container {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+}
+.card-image {
+    flex: 1;
+    background: url(assets/bg-main-desktop.png) no-repeat center center;
+    background-size: cover;
+}
+.card-image .front-card, .card-image .back-card {
+    position: absolute;
+    width: 80%;
+    max-width: 430px;
+    height: 230px;
+    border-radius: 15px;
+}
+.card-image .front-card {
+    background: url(assets/bg-card-front.png);
+    color: white;
+    top: 10%;
+    left: 10%;
+}
+.card-image .back-card {
+    background: url(assets/bg-card-back.png);
+    top: 54%;
+    left: 15%;
+}
+.card-image .front-card .circle{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+}
+.card-image .front-card .circle .circle-1{
+    background-color: white;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+.card-image .front-card .circle .circle-2{
+    background: transparent;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: 30px;
+    top: 3px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.card-image .card-number{
+    position: absolute;
+    top: 130px;
+    left: 25px;
+}
+.card-image .card-details{
+    display: flex;
+    flex-direction: row;
+}
+.card-image .card-details .card-holder{
+    position: absolute;
+    top: 180px;
+    left: 25px;
+}
+.card-image .card-details .card-expiry{
+    position: absolute;
+    top: 180px;
+    left: 350px;
+}
+.card-image .back-card .card-cvv{
+    position: absolute;
+    top: 48%;
+    left: 85%;
+    color: #fff;
+}
+.form-container {
+    flex: 1;
+    padding: 150px 300px;
+}
+.form-container .form-group label {
+    font-weight: bold;
+}
+.form-container .btn-primary {
+    background-color: #2a0845;
+    border: none;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.confirmation {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.thankyou-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tick-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #2c168f, #663192);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.thankyou-text {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+#continue-btn{
+    background-color: #2a0845;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        height: 100%;
+    }
+    .card-image {
+        height: 100%;
+        margin-bottom: 100px;
+    }
+    .card-image .back-card, .card-image .front-card {
+        width: 100%;
+        max-width: 330px;
+        max-height: 200px;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card-image .back-card{
+        position: static;
+        margin: 5px 32px;
+        max-width: 400px;
+        width: auto;
+    }
+    .card-image .back-card .card-cvv{
+        top: 18%;
+        left: auto;
+        right: 10%;
+    }
+    .card-image .front-card{
+        position: absolute;
+        top: 21%;
+        left: 10px;
+    }
+    .card-image .card-number{
+        position: absolute;
+        top: 100px;
+        left: 25px;
+    }
+    .card-image .card-details .card-holder{
+        position: absolute;
+        top: 160px;
+        left: 25px;
+    }
+    .card-image .card-details .card-expiry{
+        position: absolute;
+        top: 160px;
+        left: 80%;
+    }
+    .form-container {
+        padding: 10px;
+    }
+}
